@@ -1,0 +1,11 @@
+extends ../layout/index
+
+block formulario
+  h1 Iniciar Sesion
+  form(action="" class='formulario') 
+    input(class='form-item' id="correo" name="correo" placeholder="Correo" type="email")
+    input(class='form-item' id="contarsena" name="contarsena" placeholder="Contarsena" type="password")
+    input(class='btnGuardar' id="btnGuardar" name="btnGuardar" value="Iniciar Sesion" type="submit")
+  section(class='enlaces')
+    a(href="registro") No tiene una cuenta?
+    a(href="recuperar") Olvido la contarsena?

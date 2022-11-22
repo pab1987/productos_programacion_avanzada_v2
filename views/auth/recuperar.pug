@@ -1,0 +1,15 @@
+extends ../layout/index
+
+block formulario
+  h1 Recuperar contrasena
+  form(action="/auth/recuperar" method="POST" class='formulario') 
+    input(type="hidden" name="_csrf" value=csrfToken)
+    input(class='form-item' id="correo" name="correo" placeholder="Correo" type="email")
+    input(class='btnGuardar' id="btnGuardar" name="btnGuardar" value="Recuperar Usuario" type="submit")
+  section(class='enlaces')
+    a(href="login") Ya tiene una cuenta?
+    a(href="registro") No tiene una cuenta?
+  if errores 
+    section(class='errores')
+      each error in errores
+        p=error.msg

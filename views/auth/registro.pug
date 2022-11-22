@@ -1,0 +1,17 @@
+extends ../layout/index
+
+block formulario
+  h1 Formulario de Registro
+  form(class='formulario' action="/auth/registro" method="POST")
+    input(type="hidden" name="_csrf" value=csrfToken) 
+    input(class='form-item' id="nombre" name="nombre" placeholder="Nombre" type="text" value= usuario ? usuario.nombre : '')
+    input(class='form-item' id="correo" name="correo" placeholder="Correo" type="email" value= usuario ? usuario.correo : '')
+    input(class='form-item' id="contrasena" name="contrasena" placeholder="Contrasena" type="password")
+    input(class='btnGuardar' id="btnGuardar" value="Crear Usuario" type="submit")
+  section(class='enlaces')
+    a(href="/auth/login") Ya tiene una cuenta?
+    a(href="recuperar") Olvido la contrasena?
+  if errores 
+    section(class='errores')
+      each error in errores
+        p=error.msg
